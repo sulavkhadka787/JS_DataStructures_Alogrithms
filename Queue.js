@@ -25,6 +25,8 @@ function Queue(){
     this.isEmpty=function(){
         return (collection.length===0);
     }
+
+    
 }
 
 let queue=new Queue();
