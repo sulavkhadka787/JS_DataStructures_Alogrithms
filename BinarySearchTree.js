@@ -117,8 +117,56 @@ class BST{
     this.root=removeNode(this.root,data);
   }
 
-    
+  isPresent(data){
+    let current=this.root;
+    while(current){
+        if(data==current.data){
+            return true;
+        }
 
+        if(data<current.data){
+            current=current.left;
+        }else{
+            current=current.right;
+        }
+    }
+    return false;
+  }
+
+  //find min height of the binary tree
+  findMinHeight(node=this.root){
+      if(node==null){
+          return -1;
+      }
+
+      let left=this.findMinHeight(node.left);
+      let right=this.findMinHeight(node.right);
+      if(left<right){
+          return left+1;
+      }else{
+          return right+1;
+      }
+
+  }
+
+  //find max height
+  findMaxHeight(node=this.root){
+      if(node==null){
+          return -1;
+      }
+
+      let left=thisfindMaxHeight(node.left);
+      let right=thisfindMaxHeight(node.right);
+      if(left > right){
+          return left+1;
+      }else{
+          return right+1;
+      }
+  }
+
+  isBalanced(){
+      return (this.findMinHeight() >=this.findMaxHeight()-1);
+  }
     
     
 }
