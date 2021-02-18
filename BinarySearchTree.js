@@ -183,6 +183,21 @@ class BST{
           return result;
       }
   }
+
+  preOrder(){
+      if(this.root==null){
+          return null;
+      }else{
+          let result=new Array();
+          function traversePreOrder(node){
+              result.push(node.data);
+              node.left && traversePreOrder(node.left);
+              node.right && traversePreOrder(node.right);
+          };
+          traversePreOrder(this.root);
+          return result;
+      }
+  }
     
     
 }
@@ -196,3 +211,4 @@ bst.add(36);
 bst.add(17);
 
 console.log(bst.inOrder());
+console.log(bst.preOrder());
