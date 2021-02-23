@@ -51,6 +51,19 @@ let HashTable=function(){
         }
     }
 
+    this.lookup=function(key){
+        let index=hash(key,storageLimit);
+        if(storage[index]===undefined){
+            return undefined;
+        }else{
+            for(let i=0;i<storage[index].length;i++){
+                if(storage[index][i][0]===key){
+                    return storage[index][i][1];
+                }
+            }
+        }
+    }
+
 
 }
 
@@ -59,5 +72,6 @@ ht.add('beau', 'person');
 ht.add('fido', 'dog');
 ht.add('rex', 'dinosour');
 ht.add('tux', 'penguin');
-ht.remove('beau');
+//ht.remove('beau');
 ht.print();
+console.log(ht.lookup('beau'))
